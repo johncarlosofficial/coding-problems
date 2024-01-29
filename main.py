@@ -1,6 +1,6 @@
-from arrays_and_strings.check_permutation import Solution
+from arrays_and_strings.urlify import Solution
 
 sol = Solution()
-result = sol.check_permutation("hello", "ellho")
+result = sol.urlify("hel lo")
 
 print(result)
