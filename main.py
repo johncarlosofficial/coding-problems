@@ -1,6 +1,6 @@
-from arrays_and_strings.zero_matrix import Solution
+from arrays_and_strings.rotate_matrix import Solution
 
 instance = Solution()
-print(instance.zero_matrix([[3, 5, 6, 0],
-                           [2, 0, 3, 0],
-                           [9, 2, 7, 1]]))
+print(instance.rotate_matrix([[1, 2, 3],
+                              [4, 5, 6],
+                              [7, 8, 9]]))
