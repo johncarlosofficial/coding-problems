@@ -1,6 +1,4 @@
-from arrays_and_strings.one_away import Solution
+from arrays_and_strings.string_compression import Solution
 
-sol = Solution()
-result = sol.one_away("pale", "ple")
-
-print(result)
+instance = Solution()
+print(instance.string_compression("aabcccccaaa"))
