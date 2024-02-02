@@ -1,6 +1,4 @@
-from arrays_and_strings.rotate_matrix import Solution
+from arrays_and_strings.string_rotation import Solution
 
 instance = Solution()
-print(instance.rotate_matrix([[1, 2, 3],
-                              [4, 5, 6],
-                              [7, 8, 9]]))
+print(instance.isSubstring("watterbottle", "erbottlewatt"))
