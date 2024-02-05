@@ -1,9 +1,8 @@
-from linked_lists.return_kth_to_last import LinkedList, Solution
+from linked_lists.delete_middle_node import LinkedList, Solution
 
+linked_list = LinkedList()
+linked_list.append([1, 2, 3, 4, 5, 6])
 
-instance = LinkedList()
-instance.append([1, 2, 3, 4, 5, 6])
-print(instance.display(instance.head))
-
-sol = Solution()
-print(sol.kth_to_last(instance.head, 1))
+solution = Solution()
+solution.delete_middle_node(linked_list.head.next.next.next)
+print(linked_list.display(linked_list.head))
