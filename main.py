@@ -1,8 +1,9 @@
-from linked_lists.delete_middle_node import LinkedList, Solution
+from linked_lists.partition import LinkedList, Solution
 
-linked_list = LinkedList()
-linked_list.append([1, 2, 3, 4, 5, 6])
+linkedlist = LinkedList()
+linkedlist.append([5,3,7,8,2])
 
 solution = Solution()
-solution.delete_middle_node(linked_list.head.next.next.next)
-print(linked_list.display(linked_list.head))
+new_head = solution.partition(linkedlist.head, 3)
+
+linkedlist.display(new_head)
