@@ -1,24 +1,23 @@
-from linked_lists.sum_lists import ListNode, Solution
+from linked_lists.sum_lists import LinkedList, Solution
 
-def print_list(node):
-  while node:
-      print(node.val, end=" -> ")
-      node = node.next
-  print("None")
+# Step 1: Instantiate LinkedList objects and append elements
+linked_list1 = LinkedList()
+linked_list1.append([7, 1, 6])
 
-# Define the linked lists
-l1 = ListNode(7)
-l1.next = ListNode(1)
-l1.next.next = ListNode(6)
+linked_list2 = LinkedList()
+linked_list2.append([5, 9, 2])
 
-l2 = ListNode(5)
-l2.next = ListNode(9)
-l2.next.next = ListNode(2)
+# Step 2: Reverse the linked lists
+head1 = linked_list1.reverse_list(linked_list1.head)
+head2 = linked_list2.reverse_list(linked_list2.head)
 
-# Test the sum_lists function
+# Step 3: Instantiate Solution object and add lists
 solution = Solution()
-result = solution.sum_lists(l1, l2)
+result_head = solution.add_lists(head1, head2)
 
-# Print the result
-print("Sum of the lists:")
-print_list(result)
+# Step 4: Reverse the result and display
+result_linked_list = LinkedList()
+result_linked_list.head = result_head
+reversed_result_head = result_linked_list.reverse_list(result_linked_list.head)
+result_linked_list.head = reversed_result_head
+result_linked_list.display()

@@ -1,42 +1,84 @@
-# You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in reverse order, such that the 1's digit is at the head of the list. Write a function that adds two numbers and returns the sum as a linked list.
+# You have two numbers represented by a linked list, where each node
+# contains a single digit. The digits are stored in reverse order, such that
+# the 1's digit is at the head of the list. Write a function that adds two
+# numbers and returns the sum as a linked list.
 
 # Input: (7 -> 1 -> 6) + (5 -> 9 -> 2). That is, 617 + 295.
 # Output: 2 -> 1 -> 9. That is, 912.
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+
+class Node:
+
+  def __init__(self, val):
+    self.val = val
+    self.next = None
+
+
+class LinkedList:
+
+  def __init__(self):
+    self.head = None
+
+  def append(self, elements):
+    for i in range(len(elements)):
+      new_node = Node(elements[i])
+      if not self.head:
+        self.head = new_node
+      else:
+        curr_node = self.head
+        while curr_node.next:
+          curr_node = curr_node.next
+        curr_node.next = new_node
+
+  # NEW SOLUTION: if the linked lists are not reversed, reverse them.
+  def reverse_list(self, head):
+    if not head.next:
+      return head
+
+    prev_node = None
+    curr_node = head
+
+    while curr_node:
+      next_node = curr_node.next
+      curr_node.next = prev_node
+      prev_node = curr_node
+      curr_node = next_node
+
+    return prev_node
+
+  def display(self):
+    curr_node = self.head
+    while curr_node:
+      print(curr_node.val, end=" -> ")
+      curr_node = curr_node.next
+    print("None")
+
 
 class Solution:
-    def sum_lists(self, l1, l2):
-        # Keep track of the resulting linked list
-        dummy_node = ListNode()
-        # Pointer to the current node
-        curr_node = dummy_node
-        # Keep track of the carry
-        carry = 0
 
-        while l1 or l2 or carry:
-            # Extract the value of the current nodes, defaulting to 0 if the list has ended
-            val1 = l1.val if l1 else 0
-            val2 = l2.val if l2 else 0
+  def __init__(self):
+    self.head = None
 
-            # Calculate the total value considering the current digits and carry
-            total = val1 + val2 + carry
+  def add_lists(self, head1, head2):
+    curr1 = head1
+    curr2 = head2
+    carry = 0
+    dummy_node = Node(0)
+    curr_node = dummy_node
 
-            # Determine the new carry and the resulting digit after addition
-            carry = total // 10
-            rest = total % 10
+    while curr1 or curr2 or carry:
+      val1 = curr1.val if curr1 else 0
+      val2 = curr2.val if curr2 else 0
 
-            # Append a new node with the resulting digit to the result linked list
-            curr_node.next = ListNode(rest)
-            # Move the pointer to the next node
-            curr_node = curr_node.next
+      s = val1 + val2 + carry
 
-            # Move to the next nodes in the input linked lists if they exist
-            l1 = l1.next if l1 else None
-            l2 = l2.next if l2 else None
+      remainer = s % 10
+      carry = s // 10
 
-        # Return the resulting linked list
-        return dummy_node.next
+      curr_node.next = Node(remainer)
+
+      curr_node = curr_node.next
+      curr1 = curr1.next if curr1 else None
+      curr2 = curr2.next if curr2 else None
+
+    return dummy_node.next
