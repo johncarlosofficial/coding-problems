@@ -1,29 +1,24 @@
-from linked_lists.intersection import ListNode, Solution
+from linked_lists.loop_detection import Node, Solution
 
-# Creating instances of ListNode
-# Linked List 1: 1 -> 2 -> 3 -> 4
-head1 = ListNode(1)
-head1.next = ListNode(2)
-head1.next.next = ListNode(3)
-head1.next.next.next = ListNode(4)
+# Create nodes
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+node5 = Node(5)
 
-# Linked List 2: 5 -> 6 -> 7
-head2 = ListNode(5)
-head2.next = ListNode(6)
-head2.next.next = ListNode(7)
+# Create circular linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 3
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+node5.next = node3
 
-# Making the intersection
-# Setting the last node of the second list to point to the second node of the first list
-head2.next.next.next = head1.next
-
-# Creating a Solution instance
+# Test
 solution = Solution()
+beginning_of_loop = solution.loop_detection(node1)
 
-# Finding the intersection
-intersection_node = solution.intersection(head1, head2)
-
-# Printing the value of the intersection node if it exists
-if intersection_node:
-  print("Intersection node value:", intersection_node.val)
+if beginning_of_loop:
+  print("The node at the beginning of the loop is:", beginning_of_loop.value)
 else:
-  print("No intersection found.")
+  print("There is no loop in the linked list.")
