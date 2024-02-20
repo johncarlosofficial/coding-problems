@@ -1,13 +1,4 @@
-from stacks_and_queues.stack_min import MinStack
+from stacks_and_queues.sort_stack import Solution
 
-stack = MinStack()
-
-stack.push(3)
-stack.push(5)
-stack.push(2)
-
-print("Current minimum:", stack.min())  # Output: 2
-
-stack.pop()
-
-print("Current minimum:", stack.min())  # Output: 3
+solution = Solution()
+print(solution.sort_stack([4,3,7,6,2]))
