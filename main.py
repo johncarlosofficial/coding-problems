@@ -1,14 +1,12 @@
-from stacks_and_queues.three_in_one import MyStack
+from stacks_and_queues.stack_of_plates import SetOfStacks
 
-my_stack = MyStack(3)
-my_stack.push(0, 1)
-my_stack.push(0, 2)
-my_stack.push(1, 2)
-my_stack.push(1, 3)
-my_stack.push(2, 3)
-my_stack.pop(1)
-my_stack.pop(1)
+s = SetOfStacks(1)
+s.push(1)
+s.push(2)
+s.push(3)
 
-print(my_stack.array)
+print(s.pop())
+print(s.popAt(0))
+print(s.popAt(2))
 
-print(my_stack.peek(0), my_stack.isEmpty(1))
+
