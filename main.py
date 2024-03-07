@@ -1,12 +1,23 @@
-from stacks_and_queues.stack_of_plates import SetOfStacks
+from stacks_and_queues.queue_via_stacks import MyQueue
 
-s = SetOfStacks(1)
-s.push(1)
-s.push(2)
-s.push(3)
+my_queue = MyQueue()
+my_queue.push(1)
+my_queue.push(2)
+my_queue.push(3)
+my_queue.push(4)
+my_queue.push(5)
 
-print(s.pop())
-print(s.popAt(0))
-print(s.popAt(2))
+print(my_queue.peek())
 
+print(my_queue.pop())
+print(my_queue.pop())
 
+print(my_queue.isEmpty())
+
+print(my_queue.pop())
+print(my_queue.pop())
+print(my_queue.pop())
+
+print(my_queue.pop())
+
+print(my_queue.isEmpty())
