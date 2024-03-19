@@ -1,23 +1,11 @@
-from stacks_and_queues.queue_via_stacks import MyQueue
+from trees_and_graphs.binary_tree import BinaryTree
 
-my_queue = MyQueue()
-my_queue.push(1)
-my_queue.push(2)
-my_queue.push(3)
-my_queue.push(4)
-my_queue.push(5)
+tree = BinaryTree()
 
-print(my_queue.peek())
+tree.insert(5)
+tree.insert(6)
+tree.insert(3)
+tree.insert(2)
+tree.insert(7)
 
-print(my_queue.pop())
-print(my_queue.pop())
-
-print(my_queue.isEmpty())
-
-print(my_queue.pop())
-print(my_queue.pop())
-print(my_queue.pop())
-
-print(my_queue.pop())
-
-print(my_queue.isEmpty())
+print(tree.depth_first_search(tree.root, 7))
