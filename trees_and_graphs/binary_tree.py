@@ -1,4 +1,5 @@
 from typing import List, Optional
+from collections import deque
 
 class TreeNode:
     def __init__(self, value: int, left: Optional['TreeNode'] = None, right: Optional['TreeNode'] = None):
@@ -148,12 +149,36 @@ class Tree:
         else:
           level_nodes.append("None")
 
-      print(" | ".join(level_nodes))
-      
+      return " | ".join(level_nodes)
+
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        isBalanced = True
+
+        def height(node):
+            if not node:
+                return 0
+
+            left_height = 1 + height(node.left)
+            right_height = 1 + height(node.right)
+
+            if abs(left_height - right_height) > 1:
+                isBalanced = False
+
+            return 1 + max(height(node.left), height(node.right))
+
+        height(self.root)
+
+        return isBalanced
+
 # Example Usage
 tree = Tree()
-print(tree.insert([5, 3, 7, 2, 4, 6, 8]))
-print(tree.delete(5))
-print(tree.search(5))
-print(tree.in_order_traversal())
+
+print(tree.insert([50,25,75,20,30,70,90,15,22,28,34,65,100]))
+
 tree.print_tree()
+print("Height: ", tree.isBalanced(tree.root))
+
+                #               50
+                #         25          75
+                #     20     30    70     90
+                #  15   22 28  34 65        100
